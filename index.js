@@ -162,6 +162,7 @@ function htmlToPdfMake(htmlText, options) {
               break;
             }
           }
+          hasWhiteSpace |= text.startsWith(' ') || text.startsWith('\t')
           // if no 'white-space' style, then deal with white spaces
           if (!hasWhiteSpace) text = text.replace(/\s*\n\s*/g, " ");
           if (options && typeof options.replaceText === "function") text = options.replaceText(text, parents);
