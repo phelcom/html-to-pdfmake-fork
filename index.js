@@ -152,6 +152,8 @@ function htmlToPdfMake(htmlText, options) {
       case 3: { // TEXT_NODE
         if (element.textContent) {
           text = element.textContent;
+          if (text && (text.startsWith(' ') || text.startsWith('\t')))
+            ret['preserveLeadingSpaces'] = true; // fix preserve leading spaces issues
           // check if we have 'white-space' in the parent's style
           // or if a parent is a <PRE>
           var styleParentTextNode = this.parseStyle(parents[parents.length-1], true);
@@ -171,8 +173,6 @@ function htmlToPdfMake(htmlText, options) {
           if (text) {
             ret = {'text':text};
             ret = this.applyStyle({ret:ret, parents:parents});
-            if (text.startsWith(' ') || text.startsWith('\t'))
-              ret['preserveLeadingSpaces'] = true; // fix preserve leading spaces issues
             return ret;
           }
         }
