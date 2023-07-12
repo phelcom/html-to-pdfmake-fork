@@ -171,9 +171,9 @@ function htmlToPdfMake(htmlText, options) {
           if (['TABLE','THEAD','TBODY','TFOOT','TR','UL','OL'].indexOf(parents[parents.length-1].nodeName) > -1) text = text.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
           if (text) {
             ret = {'text':text};
-            ret = this.applyStyle({ret:ret, parents:parents});
             if (text.startsWith(' ') || text.startsWith('\t'))
               ret['preserveLeadingSpaces'] = true; // fix preserve leading spaces issues
+            ret = this.applyStyle({ret:ret, parents:parents});
             return ret;
           }
         }
