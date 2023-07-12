@@ -171,7 +171,7 @@ function htmlToPdfMake(htmlText, options) {
           if (text) {
             ret = {'text':text};
             ret = this.applyStyle({ret:ret, parents:parents});
-            if (text && (text.startsWith(' ') || text.startsWith('\t')))
+            if (text.startsWith(' ') || text.startsWith('\t'))
               ret['preserveLeadingSpaces'] = true; // fix preserve leading spaces issues
             return ret;
           }
