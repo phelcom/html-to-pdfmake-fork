@@ -64,15 +64,15 @@ function htmlToPdfMake(htmlText, options) {
     s: {decoration: 'lineThrough'},
     em: {italics:true},
     i: {italics:true},
-    h1: {fontSize:24, bold:true, marginBottom:5},
-    h2: {fontSize:22, bold:true, marginBottom:5},
-    h3: {fontSize:20, bold:true, marginBottom:5},
-    h4: {fontSize:18, bold:true, marginBottom:5},
-    h5: {fontSize:16, bold:true, marginBottom:5},
-    h6: {fontSize:14, bold:true, marginBottom:5},
+    h1: { fontSize: 20, bold: true, marginBottom: 5 },
+    h2: { fontSize: 18, bold: true, marginBottom: 5 },
+    h3: { fontSize: 16, bold: true, marginBottom: 5 },
+    h4: { fontSize: 14, bold: true, marginBottom: 5 },
+    h5: { fontSize: 12, bold: true, marginBottom: 5 },
+    h6: { fontSize: 10, bold: true, marginBottom: 5 },
     a: {color:'blue', decoration:'underline'},
     strike: {decoration: 'lineThrough'},
-    p: {margin:[0, 5, 0, 10]},
+    p: {}, // removing weird marging -> {margin:[0, 5, 0, 10]},
     ul: {marginBottom:5,marginLeft:5},
     table: {marginBottom:5},
     th: {bold:true, fillColor:'#EEEEEE'}
@@ -171,6 +171,8 @@ function htmlToPdfMake(htmlText, options) {
           if (text) {
             ret = {'text':text};
             ret = this.applyStyle({ret:ret, parents:parents});
+            if (text.startsWith(' ') || text.startsWith('\t'))
+              ret['preserveLeadingSpaces'] = true; // fix preserve leading spaces issues
             return ret;
           }
         }
