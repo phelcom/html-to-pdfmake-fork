@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aymkdn/html-to-pdfmake.git"
+    "url": "git+https://github.com/phelcom/html-to-pdfmake-fork.git"
   },
   "author": "Aymkdn",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Aymkdn/html-to-pdfmake/issues"
+    "url": "https://github.com/phelcom/html-to-pdfmake-fork/issues"
   },
-  "homepage": "https://github.com/Aymkdn/html-to-pdfmake#readme",
+  "homepage": "https://github.com/phelcom/html-to-pdfmake-fork#readme",
   "devDependencies": {
     "eslint": "^5.16.0",
     "jsdom": "^16.6.0",
